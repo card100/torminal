@@ -1,1 +1,6 @@
-
+body{
+  background:black;
+  /* Green Unless Otherwise Said: */
+  color:#0aff57;
+  font-family: 'Share Tech Mono', monospace;
+}
