@@ -5,3 +5,12 @@ body{
   font-family: 'Share Tech Mono', monospace;
   cursor: none;
 }
+#imputtxt{
+  width:100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+  background:black;
+  border:none;
+  color:#0aff59;
+}
