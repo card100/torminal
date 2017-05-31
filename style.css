@@ -3,4 +3,5 @@ body{
   /* Green Unless Otherwise Said: */
   color:#0aff57;
   font-family: 'Share Tech Mono', monospace;
+  cursor: none;
 }
