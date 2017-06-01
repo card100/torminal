@@ -128,11 +128,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output( new Date() );
           break;
         case 'echo':
-          if ( args.join(' ') ) = "") {
-           url = args.join(' ');
-          } else {
-            
-          }
+          output( args.join(' ') );
           break;
         case 'help':
           output('<div class="ls-files">' + CMDS_.join('<br>') + '</div>');
@@ -142,9 +138,6 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         case 'whoami':
           output('Good question. (aka this command is in progress)');
-          break;
-        case 'cd':
-          url = args.join(' ') );
           break;
         case 'git':
           output('Usage: ' + cmd + ' [--version] [--help] <command> [<args>]');
