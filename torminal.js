@@ -141,7 +141,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         case 'git':
           output('Usage: ' + cmd + ' [--version] [--help] <command> [<args>]');
-          output('more stuff');
+          output('git is a popular scm.  Git docs can be found at <a href="https://git-scm.com/doc">https://git-scm.com/doc</a>');
           break;
         default:
           if (cmd) {
