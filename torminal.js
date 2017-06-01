@@ -107,8 +107,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'cat':
           var url = args.join(' ');
           if (!url) {
-            output('Usage: ' + cmd + ' https://s.codepen.io/...');
-            output('Example: ' + cmd + ' https://s.codepen.io/AndrewBarfield/pen/LEbPJx.js');
+            output('Usage: ' + cmd + ' Displays file contents.');
             break;
           }
           $.get( url, function(data) {
@@ -138,10 +137,11 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output(navigator.appVersion);
           break;
         case 'whoami':
-          var result = "<img src=\"" + codehelper_ip["Flag"]+ "\"><br><br>";
-          for (var prop in codehelper_ip)
-            result += prop + ": " + codehelper_ip[prop] + "<br>";
-          output(result);
+          output('Good question. (aka this command is in progress)');
+          break;
+        case 'git':
+          output('Usage: ' + cmd + ' [--version] [--help] <command> [<args>]');
+          output('more stuff');
           break;
         default:
           if (cmd) {
