@@ -1,5 +1,5 @@
 # torminal
-<a href="https://github.com/card100/torminal/releases">Releases</a>+<a href="https://github.com/card100/wiki">Wiki</a>
+<a href="https://github.com/card100/torminal/releases">Releases</a>+<a href="https://github.com/card100/torminal/wiki">Wiki</a>
 <br>
 An online terminal with git.
 
