@@ -75,3 +75,15 @@ body {
   -o-column-width: 100px;
   column-width: 100px;
 }
+a:link {
+    color: white;
+}
+a:visited {
+    color: white;
+}
+a:hover {
+    color: lightgray;
+}
+a:active {
+    color: lightgray;
+}
