@@ -1,4 +1,5 @@
 var url = '';
+var files = ["readme.md"];
 $(function() {
   
   // Set the command-line prompt to include the user's IP Address
@@ -143,6 +144,9 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'git':
           output('Usage: ' + cmd + ' [--version] [--help] <command> [<args>]');
           output('<span class="muted">git</span> is a popular VCM.  git docs can be found at <a target="blank" href="https://git-scm.com/doc">https://git-scm.com/doc</a>');
+          break;
+        case 'ls':
+          output( files.join(' ') );
           break;
         default:
           if (cmd) {
