@@ -142,11 +142,11 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         case 'git':
           output('Usage: ' + cmd + ' [--version] [--help] <command> [<args>]');
-          output('git is a popular scm.  Git docs can be found at <a target="blank" href="https://git-scm.com/doc">https://git-scm.com/doc</a>');
+          output('<span class="muted">git</span> is a popular VCM.  git docs can be found at <a target="blank" href="https://git-scm.com/doc">https://git-scm.com/doc</a>');
           break;
         default:
           if (cmd) {
-            output(cmd + ': command not found');
+            output('<span class="yellow">' + cmd + '</span><span class="red">: command not found</span>');
           }
       };
 
