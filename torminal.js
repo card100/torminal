@@ -22,7 +22,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   var output_ = document.querySelector(outputContainer);
 
   const CMDS_ = [
-    'cat', 'clear', 'clock', 'date', 'echo', 'help', 'uname', 'whoami'
+    'git', 'clear', 'clock', 'date', 'echo', 'help', 'uname', 'whoami'
   ];
   
   var fs_ = null;
