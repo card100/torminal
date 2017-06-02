@@ -87,3 +87,18 @@ a:hover {
 a:active {
     color: lightgray;
 }
+.muted{
+color:whitesmoke;
+}
+.green{
+color:limegreen;
+}
+.blue{
+color:turquoise;
+}
+.red{
+color:tomato;
+}
+.yellow{
+color:gold;
+}
