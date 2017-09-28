@@ -133,10 +133,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output( args.join(' ') );
           break;
         case 'nano':
-          output_.innerHTML = '';
-          this.value = '';
-          return;
-          output( '<span class="red">NANO Alpha v0.1</span><br><br>' );
+          output('Good question. (aka this command is in progress)');
           break;
         case 'help':
           output('<div class="ls-files">' + CMDS_.join('<br>') + '</div>');
