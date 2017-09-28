@@ -129,6 +129,9 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'date':
           output( new Date() );
           break;
+            case 'Hello':
+          output('Hello. )');
+          break;
         case 'echo':
           output( args.join(' ') );
           break;
