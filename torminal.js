@@ -123,7 +123,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output_.innerHTML = '';
           this.value = '';
           return;
-        case 'clock':
+        case 'Time':
           output( new Date() );
           break;
         case 'date':
