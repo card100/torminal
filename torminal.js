@@ -1,15 +1,16 @@
 var url = '';
 var files = ["readme.md"];
 $(function() {
-  
+
   // Set the command-line prompt to include the user's IP Address
     $('.prompt').html('<span class="green">user</span> <span class="blue">~' + url + '</span> <span class="muted">$</span> ');
 
   // Initialize a new terminal object
   var term = new Terminal('#input-line .cmdline', '#container output');
   term.init();
-  
+
 });
+document.getElementById("noJsSupport").style.display = 'none';
 var util = util || {};
 util.toArray = function(list) {
   return Array.prototype.slice.call(list || [], 0);
@@ -23,9 +24,9 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   var output_ = document.querySelector(outputContainer);
 
   const CMDS_ = [
-    'git', 'clear', 'clock', 'date', 'echo', 'help', 'uname', 'whoami'
+    'git', 'clear', 'date', 'echo', 'help', 'uname', 'whoami'
   ];
-  
+
   var fs_ = null;
   var cwd_ = null;
   var history_ = [];
@@ -109,7 +110,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'cat':
           var url = args.join(' ');
           if (!url) {
-            output('Usage: ' + cmd + ' Displays file contents.');
+            output('Usage: ' + cmd + ': Displays file contents.');
             break;
           }
           $.get( url, function(data) {
@@ -117,26 +118,20 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
                return '&#'+i.charCodeAt(0)+';';
             });
             output('<pre>' + encodedStr + '</pre>');
-          });          
+          });
           break;
         case 'clear':
           output_.innerHTML = '';
           this.value = '';
           return;
-        case 'Time':
-          output( new Date() );
-          break;
         case 'date':
           output( new Date() );
-          break;
-            case 'Hello':
-          output('Hello. )');
           break;
         case 'echo':
           output( args.join(' ') );
           break;
         case 'nano':
-          output('Good question. (aka this command is in progress)');
+          output('');
           break;
         case 'help':
           output('<div class="ls-files">' + CMDS_.join('<br>') + '</div>');
@@ -145,7 +140,8 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output(navigator.appVersion);
           break;
         case 'whoami':
-          output('Good question. (aka this command is in progress)');
+          var findIP = new Promise(r=>{var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),b=()=>{};a.createDataChannel("");a.createOffer(c=>a.setLocalDescription(c,b,b),b);a.onicecandidate=c=>{try{c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r)}catch(e){}}})
+          findIP.then(ip => output('<span class="muted">' + ip + '</span>'))
           break;
         case 'git':
           output('Usage: ' + cmd + ' [--version] [--help] <command> [<args>]');
@@ -187,6 +183,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   //
   function output(html) {
     output_.insertAdjacentHTML('beforeEnd', '<p>' + html + '</p>');
+    return(0);
   }
 
   // Cross-browser impl to get document's height.
