@@ -1,3 +1,4 @@
+// Torminal
 var url = '';
 var files = ["readme.md"];
 $(function() {
@@ -150,6 +151,14 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'ls':
           output( files.join(' ') );
           break;
+        case 'moreStorage':
+          window.webkitStorageInfo.requestQuota(PERSISTENT, Number(args.join(' '))*1024*1024, function(grantedBytes) {
+  window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
+}, function(e) {
+  console.log('Error', e);
+});
+          output(  );
+          break;
         default:
           if (cmd) {
             output('<span class="yellow">' + cmd + ':</span><span class="red"> command not found</span>');
@@ -199,8 +208,50 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   //
   return {
     init: function() {
-      output('<img align="left" class="undrag" src="https://i.cubeupload.com/xYIaXA.png" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Torminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.</p>');
+      output('<img align="left" class="undrag" src="https://i.cubeupload.com/xYIaXA.png" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Torminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.  <b>Chrome is needed to interact with files.</b></p>');
     },
     output: output
   }
 };
+
+// Filesystem API
+function onInitFs(fs) {
+  console.log('Opened file system: ' + fs.name);
+}
+
+window.requestFileSystem(window.PERSISTENT, 5*1024*1024 /*5MB*/, onInitFs, errorHandler);
+
+function errorHandler(e) {
+  var msg = '';
+
+  //Errors
+  switch (e.code) {
+    case FileError.QUOTA_EXCEEDED_ERR:
+      msg = 'QUOTA_EXCEEDED_ERR';
+      break;
+    case FileError.NOT_FOUND_ERR:
+      msg = 'NOT_FOUND_ERR';
+      break;
+    case FileError.SECURITY_ERR:
+      msg = 'SECURITY_ERR';
+      break;
+    case FileError.INVALID_MODIFICATION_ERR:
+      msg = 'INVALID_MODIFICATION_ERR';
+      break;
+    case FileError.INVALID_STATE_ERR:
+      msg = 'INVALID_STATE_ERR';
+      break;
+    default:
+      msg = 'Unknown Error';
+      break;
+  };
+
+  console.log('Error: ' + msg);
+}
+
+//Ask for storage
+window.webkitStorageInfo.requestQuota(PERSISTENT, 5*1024*1024, function(grantedBytes) {
+  window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
+}, function(e) {
+  console.log('Error', e);
+});
