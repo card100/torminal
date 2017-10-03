@@ -124,6 +124,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output_.innerHTML = '';
           this.value = '';
           return;
+          output('<p>' + new Date() + '</p>');
         case 'date':
           output( new Date() );
           break;
