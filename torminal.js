@@ -154,6 +154,11 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'ls':
           output( files.join(' ') );
           break;
+          case 'calc':
+          output( eval(args.join(' ')) );
+          break;
+          
+          
         default:
           if (cmd) {
             output('<span class="yellow">' + cmd + ':</span><span class="red"> command not found</span>');
