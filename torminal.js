@@ -130,7 +130,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output( new Date() );
           break;
         case 'echo':
-          output( args.join(' ') );
+          output( args.join(' ').replace('<', '&lt;').replace('</', '&lt;/').replace('\\n', '<br>') );
           break;
         case 'nano':
           output('');
