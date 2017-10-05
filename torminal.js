@@ -24,7 +24,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   var output_ = document.querySelector(outputContainer);
 
   const CMDS_ = [
-    'about', 'clear', 'date', 'echo', 'git', 'help', 'uname', 'whoami'
+    'about', 'calc', 'clear', 'date', 'echo', 'git', 'help', 'uname', 'whoami'
   ];
 
   var fs_ = null;
@@ -153,6 +153,9 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         case 'ls':
           output( files.join(' ') );
+          break;
+        case 'calc':
+          output( math.eval(args.join(' ')) );
           break;
         default:
           if (cmd) {
