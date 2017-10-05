@@ -219,12 +219,11 @@ function onInitFs(fs) {
   console.log('Opened file system: ' + fs.name);
 }
 
-window.requestFileSystem(window.PERSISTENT, 5*1024*1024 /*5MB*/, onInitFs, errorHandler);
+window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, onInitFs, errorHandler);
 
 function errorHandler(e) {
   var msg = '';
 
-  //Errors
   switch (e.code) {
     case FileError.QUOTA_EXCEEDED_ERR:
       msg = 'QUOTA_EXCEEDED_ERR';
@@ -248,10 +247,3 @@ function errorHandler(e) {
 
   console.log('Error: ' + msg);
 }
-
-//Ask for storage
-window.webkitStorageInfo.requestQuota(PERSISTENT, 5*1024*1024, function(grantedBytes) {
-  window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
-}, function(e) {
-  console.log('Error', e);
-});
