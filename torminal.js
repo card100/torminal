@@ -1,3 +1,7 @@
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
 var url = '';
 var files = ["readme.md"];
 $(function() {
@@ -130,7 +134,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output( new Date() );
           break;
         case 'echo':
-          output( args.join(' ').replace('<', '&lt;').replace('</', '&lt;/').replace('\\n', '<br>') );
+          output( args.join(' ').replaceAll('</', '&lt;/').replaceAll('<', '&lt;').replaceAll('/>', '/&gt;').replaceAll('>', '&gt;').replaceAll('\\n', '<br>') );
           break;
         case 'nano':
           output('');
