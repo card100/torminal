@@ -29,7 +29,6 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
 
   const CMDS_ = [
     'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license'
-      'cat',
   ];
 
   var fs_ = null;
@@ -115,7 +114,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'cat':
           var url = args.join(' ');
           if (!url) {
-            output('Usage: ' + cmd + ': Displays file contents!');
+            output('Usage: ' + cmd + ': Displays file contents.');
             break;
           }
           $.get( url, function(data) {
@@ -199,7 +198,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         default:
           if (cmd) {
-            output('<span class="yellow">' + cmd + ':</span><span class="red"> The Command Is Not Vaild or the Command Can not be found</span>');
+            output('<span class="yellow">' + cmd + ':</span><span class="red"> command not found</span>');
           }
       };
 
