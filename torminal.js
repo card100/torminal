@@ -168,7 +168,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         case 'license':
           var txt = "\
-            <span class=\"blue\">Torminal is licensed under the <a href=\"https://github.com/card100/torminal/blob/master/LICENSE\">MIT License</a>.</span><br>\
+            <span class=\"red\">Torminal is licensed under the <a href=\"https://github.com/card100/torminal/blob/master/LICENSE\">MIT License</a>.</span><br>\
             <br>\
             ----------<br>\
             <br>\
