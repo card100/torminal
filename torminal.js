@@ -196,7 +196,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
               break;
         default:
           if (cmd) {
-            output('<span class="yellow">' + cmd + ':</span><span class="red"> command not found</span>');
+            output('<span class="yellow">' + cmd + ':</span><span class="red"> The Command Can't be Found</span>');
           }
       };
 
