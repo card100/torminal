@@ -191,7 +191,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
               ";
           output(txt);
           break;
-        case: 
+        case 'credits': 
               output("Here is a list of all contributers to this project: https://github.com/card100/torminal/graphs/contributors");
               break;
         default:
