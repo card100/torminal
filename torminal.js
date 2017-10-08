@@ -164,7 +164,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         case 'calc':
           output( math.eval(args.join(' ')) );
-              wait(17)
+              wait(10)
           break;
         case 'license':
           var txt = "\
