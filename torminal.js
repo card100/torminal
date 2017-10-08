@@ -29,7 +29,6 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
 
   const CMDS_ = [
     'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license', 'credits'
-      'cat',
   ];
 
   var fs_ = null;
@@ -193,11 +192,11 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output(txt);
           break;
         case 'credits': 
-              echo ("This Was Made By @card100, @nanomation , @greenbayrules @csf30816 & @redmangospros ");
+              output("Here is a list of all contributers to this project: https://github.com/card100/torminal/graphs/contributors");
               break;
         default:
           if (cmd) {
-            output('<span class="yellow">' + cmd + ':</span><span class="red"> The Command Can not be Found</span>');
+            output('<span class="yellow">' + cmd + ':</span><span class="red"> command not found</span>');
           }
       };
 
