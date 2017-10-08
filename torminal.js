@@ -132,12 +132,10 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         case 'date':
           output( new Date() );
-              wait(6)
           break;
         case 'echo':
           output( args.join(' ').replaceAll('</', '&lt;/').replaceAll('<', '&lt;').replaceAll('/>', '/&gt;').replaceAll('>', '&gt;').replaceAll('\\n', '<br>') );
-         wait(4)
-               break;
+          break;
         case 'nano':
           output('');
           break;
@@ -156,15 +154,12 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'git':
           output('Usage: ' + cmd + ' [--version] [--help] <command> [<args>]');
           output('<span class="muted">git</span> is a popular VCM.  git docs can be found at <a target="blank" href="https://git-scm.com/doc">https://git-scm.com/doc</a>');
-         wait(2)
-               break;
+          break;
         case 'ls':
           output( files.join(' ') );
-              wait(8)
           break;
         case 'calc':
           output( math.eval(args.join(' ')) );
-              wait(10)
           break;
         case 'license':
           var txt = "\
