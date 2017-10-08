@@ -28,7 +28,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   var output_ = document.querySelector(outputContainer);
 
   const CMDS_ = [
-    'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license'
+    'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license', 'credits'
   ];
 
   var fs_ = null;
@@ -189,8 +189,11 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
             OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE<br>\
             SOFTWARE.\
               ";
-          output(txt)
+          output(txt);
           break;
+        case: 
+              output("Here is a list of all contributers to this project: https://github.com/card100/torminal/graphs/contributors");
+              break;
         default:
           if (cmd) {
             output('<span class="yellow">' + cmd + ':</span><span class="red"> command not found</span>');
