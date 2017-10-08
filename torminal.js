@@ -1,4 +1,7 @@
-// Torminal
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
 var url = '';
 var files = ["readme.md"];
 $(function() {
@@ -25,7 +28,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   var output_ = document.querySelector(outputContainer);
 
   const CMDS_ = [
-    'git', 'clear', 'date', 'echo', 'help', 'uname', 'whoami'
+    'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license'
   ];
 
   var fs_ = null;
@@ -125,15 +128,19 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output_.innerHTML = '';
           this.value = '';
           return;
+          output('<p>' + new Date() + '</p>');
+          break;
         case 'date':
           output( new Date() );
           break;
         case 'echo':
-          output( args.join(' ') );
+          output( args.join(' ').replaceAll('</', '&lt;/').replaceAll('<', '&lt;').replaceAll('/>', '/&gt;').replaceAll('>', '&gt;').replaceAll('\\n', '<br>') );
           break;
         case 'nano':
           output('');
           break;
+        case 'about':
+          output('<img align="left" class="undrag" src="xYIaXA.png" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Torminal</h2><p></p><p>Enter "help" for more information.</p><br><p>(c) 2017 Henry Gruett Under <a href="https://card100.github.io/torminal/LICENSE">MIT License</a>');
         case 'help':
           output('<div class="ls-files">' + CMDS_.join('<br>') + '</div>');
           break;
@@ -151,13 +158,38 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'ls':
           output( files.join(' ') );
           break;
-        case 'moreStorage':
-          window.webkitStorageInfo.requestQuota(PERSISTENT, Number(args.join(' '))*1024*1024, function(grantedBytes) {
-  window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
-}, function(e) {
-  console.log('Error', e);
-});
-          output(  );
+        case 'calc':
+          output( math.eval(args.join(' ')) );
+          break;
+        case 'license':
+          var txt = "\
+            <span class=\"blue\">Torminal is licensed under the <a href=\"https://github.com/card100/torminal/blob/master/LICENSE\">MIT License</a>.</span><br>\
+            <br>\
+            ----------<br>\
+            <br>\
+            MIT License<br>\
+            <br>\
+            Copyright (c) 2017 Henry Gruett (GitHub/@card100)<br>\
+            <br>\
+            Permission is hereby granted, free of charge, to any person obtaining a copy<br>\
+            of this software and associated documentation files (the \"Software\"), to deal<br>\
+            in the Software without restriction, including without limitation the rights<br>\
+            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>\
+            copies of the Software, and to permit persons to whom the Software is<br>\
+            furnished to do so, subject to the following conditions:<br>\
+            <br>\
+            The above copyright notice and this permission notice shall be included in all<br>\
+            copies or substantial portions of the Software.<br>\
+            <br>\
+            THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>\
+            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,<br>\
+            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE<br>\
+            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER<br>\
+            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,<br>\
+            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE<br>\
+            SOFTWARE.\
+              ";
+          output(txt)
           break;
         default:
           if (cmd) {
@@ -208,42 +240,8 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   //
   return {
     init: function() {
-      output('<img align="left" class="undrag" src="https://i.cubeupload.com/xYIaXA.png" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Torminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.  <b>Chrome is needed to interact with files.</b></p>');
+      output('<img align="left" class="undrag" src="xYIaXA.png" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Torminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.</p><br><p>(c) 2017 Henry Gruett Under <a href="https://github.com/card100/torminal/blob/master/LICENSE">MIT License</a>. Type \'license\' for more info.');
     },
     output: output
   }
 };
-
-// Filesystem API
-function onInitFs(fs) {
-  console.log('Opened file system: ' + fs.name);
-}
-
-window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, onInitFs, errorHandler);
-
-function errorHandler(e) {
-  var msg = '';
-
-  switch (e.code) {
-    case FileError.QUOTA_EXCEEDED_ERR:
-      msg = 'QUOTA_EXCEEDED_ERR';
-      break;
-    case FileError.NOT_FOUND_ERR:
-      msg = 'NOT_FOUND_ERR';
-      break;
-    case FileError.SECURITY_ERR:
-      msg = 'SECURITY_ERR';
-      break;
-    case FileError.INVALID_MODIFICATION_ERR:
-      msg = 'INVALID_MODIFICATION_ERR';
-      break;
-    case FileError.INVALID_STATE_ERR:
-      msg = 'INVALID_STATE_ERR';
-      break;
-    default:
-      msg = 'Unknown Error';
-      break;
-  };
-
-  console.log('Error: ' + msg);
-}
