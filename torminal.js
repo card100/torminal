@@ -110,5 +110,5 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         args = args.splice(1); // Remove cmd from arg list.
      
           case: Love
-          Echo("jk')
+          Echo("jk")
           break;
