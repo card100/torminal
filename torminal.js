@@ -20,6 +20,7 @@ util.toArray = function(list) {
   return Array.prototype.slice.call(list || [], 0);
 };
 
+
 var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   window.URL = window.URL || window.webkitURL;
   window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
