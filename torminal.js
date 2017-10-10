@@ -28,7 +28,8 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   var output_ = document.querySelector(outputContainer);
 
   const CMDS_ = [
-    'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license', 'credits'
+    'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license', 'credits' ,
+      'cat'
   ];
 
   var fs_ = null;
