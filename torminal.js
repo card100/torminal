@@ -3,7 +3,7 @@ String.prototype.replaceAll = function(search, replacement) {
     return target.split(search).join(replacement);
 };
 var url = '';
-var files = ["readme.md"];
+var files = ["README.md"];
 $(function() {
 
   // Set the command-line prompt to include the user's IP Address
