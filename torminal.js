@@ -3,7 +3,7 @@ String.prototype.replaceAll = function(search, replacement) {
     return target.split(search).join(replacement);
 };
 var url = '';
-var files = ["readme.md"];
+var files = [];
 $(function() {
 
   // Set the command-line prompt to include the user's IP Address
@@ -28,7 +28,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   var output_ = document.querySelector(outputContainer);
 
   const CMDS_ = [
-    'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license', 'credits'
+    'about', 'calc [-n]', 'clear', 'date', 'echo [-neE]', 'git', 'uname', 'whoami', 'license', 'credits', 'pwd'
   ];
 
   var fs_ = null;
@@ -114,7 +114,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         case 'cat':
           var url = args.join(' ');
           if (!url) {
-            output('Usage: ' + cmd + ': Displays file contents.');
+            output('Usage: ' + cmd + ' [FILE]: Displays file contents.');
             break;
           }
           $.get( url, function(data) {
@@ -192,8 +192,11 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output(txt);
           break;
         case 'credits': 
-              output("Here is a list of all contributers to this project: https://github.com/card100/torminal/graphs/contributors");
-              break;
+          output("Here is a list of all contributers to this project: <a href=\"https://github.com/card100/torminal/graphs/contributors\">github.com/card100/torminal/graphs/contributors</a>");
+          break;
+        case 'pwd':
+          output("/home/user");
+          break;
         default:
           if (cmd) {
             output('<span class="yellow">' + cmd + ':</span><span class="red"> command not found</span>');
