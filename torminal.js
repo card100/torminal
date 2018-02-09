@@ -192,7 +192,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output(txt);
           break;
         case 'credits': 
-              output("A list of all contributers to this project can be found at https://github.com/card100/torminal/graphs/contributors");
+              output("<span class="green"><b>TORMINAL</b><span><br><br><b>Created by:</b><br><i>Henry Gruett(card100)</i><br><br><b>Contributors:</b><br><i>Nanomotion, Sheshank Shankar (GreenBayRules), Arav Narula, csf30816, Kerr Travers (ktrvs)</i><br><b>Notes:</b><br>torminal was built on top of Andrew M Barfield's <a href="https://codepen.io/AndrewBarfield/pen/qEqWMq">HTML5 Web Terminal</a>. It is released under a standard MIT license.<br>Math handled by <a href="http://mathjs.org/">math.js</a>.  It is released under a Apache License 2.0 license.  No changes have been made to the API.");
               break;
         default:
           if (cmd) {
