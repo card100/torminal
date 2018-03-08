@@ -140,7 +140,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output('');
           break;
         case 'about':
-          output('<img align="left" class="undrag" src="xYIaXA.png" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Torminal</h2><p></p><p>Enter "help" for more information.</p><br><p>(c) 2017 Henry Gruett Under <a href="https://card100.github.io/torminal/LICENSE">MIT License</a>');
+          output('<img align="left" class="undrag" src="/assets/xYIaXA.png" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Torminal</h2><p></p><p>Enter "help" for more information.</p><br><p>(c) 2017 Henry Gruett Under <a href="https://card100.github.io/torminal/LICENSE">MIT License</a>');
         case 'help':
           output('<div class="ls-files">' + CMDS_.join('<br>') + '</div>');
           break;
