@@ -192,7 +192,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output(txt);
           break;
         case 'credits': 
-              output("<span class="green"><b>TORMINAL</b><span><br><br><b>Created by:</b><br>Henry Gruett <i>card100</i><br><br><b>Contributors:</b><br>Nanomotion, Sheshank Shankar <i>GreenBayRules</i>, Arav Narula, <i>csf30816</i>, Kerr Travers <i>ktrvs</i><br><b>Notes:</b><br>torminal was built on top of Andrew M Barfield's <a href="https://codepen.io/AndrewBarfield/pen/qEqWMq">HTML5 Web Terminal</a>. It is released under a standard MIT license.<br>Math handled by <a href="http://mathjs.org/">math.js</a>.  It is released under a Apache License 2.0 license.  No changes have been made to the API.");
+              output("<span class="green"><b>TORMINAL</b><span><br><br><b>Created by:</b><br>Henry Gruett <i>card100</i><br><br><b>Contributors:</b><br>Nanomotion, Sheshank Shankar <i>GreenBayRules</i>, Arav Narula, <i>csf30816</i>, Kerr Travers <i>ktrvs</i><br><b>Notes:</b><br>torminal was built on top of Andrew M Barfield's <a href=\"https://codepen.io/AndrewBarfield/pen/qEqWMq\">HTML5 Web Terminal</a>. It is released under a standard MIT license.<br>Math handled by <a href=\"http://mathjs.org/\">math.js</a>.  It is released under a Apache License 2.0 license.  No changes have been made to the API.");
               break;
         default:
           if (cmd) {
