@@ -6,6 +6,18 @@ String.prototype.replaceAll = function(search, replacement) {
 // Filesystem setup
 var url = '';
 var files = ["readme.md"];
+var fileValues = ["# Hello World!"];
+// Cookies might need to be declared ouside of load out function
+
+// Load in:
+var files = Cookies.get('fileCookie');
+var fileValues = Cookies.get('fileValuesCookie');
+
+// Load out
+window.onbeforeunload = cookiesSave(){
+    Cookies.set("fileCookie", files);
+    Cookies.set("fileValuesCookie", fileValues);
+};
 
 $(function() {
 
