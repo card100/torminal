@@ -2,8 +2,11 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
+
+// Filesystem setup
 var url = '';
 var files = ["readme.md"];
+
 $(function() {
 
   // Set the command-line prompt to include the user's IP Address
