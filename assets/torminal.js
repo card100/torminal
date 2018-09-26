@@ -2,8 +2,23 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
+
+// Filesystem setup
 var url = '';
 var files = ["readme.md"];
+var fileValues = ["# Hello World!"];
+// Cookies might need to be declared ouside of load out function
+
+// Load in:
+var files = Cookies.get('fileCookie');
+var fileValues = Cookies.get('fileValuesCookie');
+
+// Load out
+window.onbeforeunload = cookiesSave(){
+    Cookies.set("fileCookie", files);
+    Cookies.set("fileValuesCookie", fileValues);
+};
+
 $(function() {
 
   // Set the command-line prompt to include the user's IP Address
@@ -169,7 +184,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
             <br>\
             MIT License<br>\
             <br>\
-            Copyright (c) 2017 Henry Gruett (GitHub/@card100)<br>\
+            Copyright (c) 2018 Henry Gruett (GitHub/@card100)<br>\
             <br>\
             Permission is hereby granted, free of charge, to any person obtaining a copy<br>\
             of this software and associated documentation files (the \"Software\"), to deal<br>\
