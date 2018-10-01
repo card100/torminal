@@ -14,10 +14,10 @@ var files = Cookies.get('fileCookie');
 var fileValues = Cookies.get('fileValuesCookie');
 
 // Load out
-window.onbeforeunload = cookiesSave(){
+window.onbeforeunload = cookiesSave();{
     Cookies.set("fileCookie", files);
     Cookies.set("fileValuesCookie", fileValues);
-};
+}
 
 $(function() {
 
@@ -110,7 +110,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
 
       // Duplicate current input and append to output section.
       var line = this.parentNode.parentNode.cloneNode(true);
-      line.removeAttribute('id')
+      line.removeAttribute('id');
       line.classList.add('line');
       var input = line.querySelector('input.cmdline');
       input.autofocus = false;
@@ -260,6 +260,6 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
     init: function() {
       output('<img align="left" class="undrag" src="assets/xYIaXA.png" width="100" height="100" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Torminal</h2><p>' + new Date() + '</p><p>Enter "help" for more information.</p><br><p>(c) 2017 Henry Gruett Under <a href="https://github.com/card100/torminal/blob/master/LICENSE">MIT License</a>. Type \'license\' for more info.');
     },
-    output: output
+    output: output;
   }
 };
